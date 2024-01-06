@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./global.styled";
+import {WrapperStyled} from "./components/wrapper/wrapper";
+import {Flex} from "./components/helpers/helpers";
+import Todo from "./components/todo/Todo";
+import Header from "./components/header/Header";
+import {observer} from "mobx-react-lite";
+import Store from "./store/store";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <>
+            <GlobalStyle/>
+            <WrapperStyled>
+                <Header/>
+                <Flex direction="column" mt={15} gap={10}>
+                    {Store.todos.map(({id, body, checked}, index) => (
+                        <Todo key={id} checked={checked} index={index} id={id}>{body}</Todo>))}
+                </Flex>
+            </WrapperStyled>
+        </>
+    )
 }
 
-export default App;
+export default observer(App);
