@@ -1,6 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import {ITodo} from "../interface/ITodo";
-import React from "react";
+
 const init:ITodo[] = [
     {
         id: 1,

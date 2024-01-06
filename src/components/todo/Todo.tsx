@@ -1,5 +1,5 @@
 import {CustomCheckBox, CustomDiv, Flex, SpanStyled, TodoDiv} from "../helpers/helpers";
-import React, {ReactNode, useState} from "react";
+import React, {ReactNode} from "react";
 import {Checkbox} from "@mui/material";
 import Store from "../../store/store";
 import {observer} from "mobx-react-lite";
